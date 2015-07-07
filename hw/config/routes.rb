@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   get "/greet" => "products#greet"
 
+  get "/contact" => "products#contact"
+
+  get "/contact_submitted" => "products#contact_submitted"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
