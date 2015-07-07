@@ -1,0 +1,29 @@
+<h1>Current Conditions:</h1>
+
+<%
+
+# Require Ruby libraries
+require 'open-uri'
+require 'json'
+
+# Our classroom location
+location = params["city"]
+
+# Convert to an HTTP-compatible querystring parameter
+location = URI.escape(location)
+
+# Send an HTTP request to the OpenWeatherMap API
+json_data = open("http://api.openweathermap.org/data/2.5/weather?q=#{location}&units=imperial").read
+
+# Parse the response string into a Ruby data structure
+# (You will need to figure out what kind of structure it is)
+data = JSON.parse(json_data)
+
+# 1. TO DO:
+# Replace the following 0 with an expression
+# that will extract the temperature
+temp = data["main"]["temp"]
+
+%>
+
+<p>It is currently <%= temp.round(0) %> degrees in <%= params["city"] %>.</p>
